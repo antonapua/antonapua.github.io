@@ -1,0 +1,34 @@
+{
+  "name": "anton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonapua/antonapua.github.io.git"
+  },
+  "author": "Anton Escalante",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonapua/antonapua.github.io/issues"
+  },
+  "homepage": "https://github.com/antonapua/antonapua.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "modernizr": "^3.5.0",
+    "normalize-scss": "^7.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.2",
+    "uglify-js": "^2.8.28",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1"
+  }
+}
