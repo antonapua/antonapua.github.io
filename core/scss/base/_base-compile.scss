@@ -1,7 +1,2 @@
-body{
-  display: inline-block;
-  p{
-    margin: 0 auto;
-    font-size: 20px;
-  }
-}
+@import '_variables.scss';
+@import '_general.scss';
