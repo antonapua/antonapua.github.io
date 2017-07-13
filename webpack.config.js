@@ -12,7 +12,10 @@ module.exports = {
   },
   watch: true,
   resolve: {
-    extensions: [' ', '.js']
+    extensions: [' ', '.js', '.css', '.scss'],
+    alias: {
+        normalize: __dirname+'/node_modules/normalize.css'
+    }
   },
   plugins: [
     new UglifyJSPlugin({
@@ -48,6 +51,13 @@ module.exports = {
           ],
         })
       },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
+      }
     ]
   }
 };

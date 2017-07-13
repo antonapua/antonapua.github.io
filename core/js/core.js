@@ -1,7 +1,4 @@
-
 var $ = require("jquery");
-
-
 $(document).ready(function (){
-  console.log('boop');
+  // console.log('boop');
 });

@@ -1,2 +1,4 @@
-@import './core/scss/base/_base-compile';
-@import './core/scss/sections/_sections-compile';
+
+@import './../../node_modules/normalize-scss/sass/_normalize.scss';
+@import 'base/_base-compile.scss';
+@import 'sections/_sections-compile.scss';

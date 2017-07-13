@@ -1,0 +1,33 @@
+.menu{
+  position: absolute;
+  right: 100px;
+  top: 40px;
+  > span:first-of-type{
+    color: $white;
+    font-family: $font-monster;
+    border: 2px solid $white;
+    padding: 10px 15px;
+    transition: $transition-05;
+    background: transparent;
+    cursor: pointer;
+    &:hover{
+      background: #151515;
+    }
+  }
+  &__burger{
+    position: absolute;
+    right: -65px;
+    top: -7px;
+    cursor: pointer;
+    span{
+      background: $white;
+      width: 35px;
+      height: 3px;
+      display: block;
+      margin-bottom: 10px;
+      &:nth-of-type(3){
+        margin-top: -13px;
+      }
+    }
+  }
+}
