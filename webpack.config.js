@@ -27,7 +27,7 @@ let config = {
   },
   plugins: [ //webpack plugins
     new ExtractTextWebpackPlugin('./css/bundle.min.css'),
-    // new webpack.optimize.UglifyJSPlugin()
+    new webpack.optimize.UglifyJSPlugin()
   ],
   devServer:{
     contentBase: path.resolve(__dirname, './core'),
