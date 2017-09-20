@@ -1,5 +1,6 @@
 
 require('./../scss/bundle.scss');
+require('./../index.html');
 
 class Car{
   manufacturer(car){

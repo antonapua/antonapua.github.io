@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin =  require('html-webpack-plugin');
 
 let config = {
   entry: './core/js/core.js',
@@ -16,6 +17,10 @@ let config = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.html$/,
+        loader: "raw-loader"
       }
     ]
   },
@@ -49,11 +54,17 @@ if (process.env.NODE_ENV === 'production') {
       })
     }
   );
-}else{
+}else{ // run on dev
+
   module.exports.module.rules.push(
     { //sass combile
       test: /\.scss$/,
       loaders: ['style-loader', 'css-loader', 'sass-loader']
     }
+  );
+  module.exports.plugins.push(
+    new HtmlWebpackPlugin({
+      template: './core/index.html'
+    })
   );
 }
