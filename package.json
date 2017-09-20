@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "dev": "SET NODE_ENV=development & webpack-dev-server  --content-base -d --hot --config webpack.config.js --watch --inline",
-    "production": "SET NODE_ENV=production & webpack -p"
+    "production": "SET NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
