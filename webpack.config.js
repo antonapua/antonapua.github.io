@@ -1,63 +1,43 @@
-var webpack = require('webpack');
-var debug = process.env.NODE_ENV !== "production";
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = {
-  entry: ['./core/js/core.js', './core/scss/bundle.scss'],
+let config = {
+  entry: './core/js/core.js',
   output: {
-    path: __dirname,
-    filename: './core/js/core.min.js'
+    path: path.resolve(__dirname, './core'),
+    filename: './js/core.min.js'
   },
-  watch: true,
-  resolve: {
-    extensions: [' ', '.js', '.css', '.scss'],
-    alias: {
-        normalize: __dirname+'/node_modules/normalize.css'
-    }
-  },
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true
-    }),
-    new ExtractTextPlugin({
-      filename: '/core/css/bundle.min.css',
-      allChunks: true,
-    }),
-  ],
-  devtool: 'source-map',
-  module: {
+  module:{
     rules: [
-      {
-        test: /(\.scss|\.css)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-                outFile: './core/css/bundle.min.css',
-                outputStyle: 'compressed',
-              }
-            }
-          ],
-        })
+      { //js compile
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
       },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-        ]
+      { //sass combile
+        test: /\.scss$/,
+        use: ExtractTextWebpackPlugin.extract({
+          use: ['css-loader', 'sass-loader'],
+          fallback: 'style-loader'
+        })
       }
     ]
-  }
-};
+  },
+  plugins: [ //webpack plugins
+    new ExtractTextWebpackPlugin('./css/bundle.min.css'),
+    // new webpack.optimize.UglifyJSPlugin()
+  ],
+  devServer:{
+    contentBase: path.resolve(__dirname, './core'),
+    historyApiFallback: true,
+    inline: true,
+    open: true,
+    hot: true
+  },
+  devtool: 'eval-source-map'
+}
+
+
+module.exports = config;
