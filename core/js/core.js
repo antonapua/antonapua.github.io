@@ -3,7 +3,7 @@ require('./../scss/bundle.scss');
 
 class Car{
   manufacturer(car){
-    alert(`i have a ${car}`)
+    // alert(`i have a ${car}s`)
   }
 }
 

@@ -16,13 +16,6 @@ let config = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
-      },
-      { //sass combile
-        test: /\.scss$/,
-        use: ExtractTextWebpackPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
-          fallback: 'style-loader'
-        })
       }
     ]
   },
@@ -46,5 +39,21 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin(), // call the uglify plugin
     new OptimizeCSSAssets()
+  );
+  module.exports.module.rules.push(
+    { //sass combile
+      test: /\.scss$/,
+      use: ExtractTextWebpackPlugin.extract({
+        use: ['css-loader', 'sass-loader'],
+        fallback: 'style-loader'
+      })
+    }
+  );
+}else{
+  module.exports.module.rules.push(
+    { //sass combile
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
+    }
   );
 }
