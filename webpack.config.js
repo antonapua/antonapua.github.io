@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 
 let config = {
   entry: './core/js/core.js',
@@ -26,8 +27,7 @@ let config = {
     ]
   },
   plugins: [ //webpack plugins
-    new ExtractTextWebpackPlugin('./css/bundle.min.css'),
-    new webpack.optimize.UglifyJSPlugin()
+    new ExtractTextWebpackPlugin('./css/bundle.min.css')
   ],
   devServer:{
     contentBase: path.resolve(__dirname, './core'),
@@ -41,3 +41,10 @@ let config = {
 
 
 module.exports = config;
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.plugins.push(
+    new webpack.optimize.UglifyJsPlugin(), // call the uglify plugin
+    new OptimizeCSSAssets()
+  );
+}
