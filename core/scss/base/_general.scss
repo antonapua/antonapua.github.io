@@ -5,6 +5,8 @@ body{
 
 
 header{
+  position: relative;
+  z-index: 1;
   .logo{
     text-align: center;
     position: fixed;

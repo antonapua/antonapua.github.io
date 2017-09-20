@@ -1,4 +1,15 @@
 #home{
+  background: url('/images/headshot.jpg');
+  background-size: cover;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: $black;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+  }
   h1{
     font-family: $font-monster;
     font-size: 40px;
