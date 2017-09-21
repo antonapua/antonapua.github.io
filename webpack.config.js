@@ -64,7 +64,8 @@ if (process.env.NODE_ENV === 'production') {
   );
   module.exports.plugins.push(
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      inject: false
     })
   );
 }

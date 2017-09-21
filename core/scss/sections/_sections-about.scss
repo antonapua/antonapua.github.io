@@ -1,0 +1,106 @@
+#about{
+  .img-con{
+    position: relative;
+    top: -20px;
+    .outline-box{
+      width: 230px;
+      border: 10px solid $blue;
+      height: 350px;
+      right: 0;
+      position: absolute;
+      top: -30px;
+      left: 60%;
+    }
+    .img-holder{
+      width: 300px;
+      height: 500px;
+      background: #fff;
+      position: absolute;
+      left: 64%;
+      top: 60px;
+    }
+  }
+
+  .page{
+    &__objects{
+      &.active{
+        img{
+          opacity: 1;
+
+          &:nth-of-type(1),&:nth-of-type(2){
+           transform: translate(0,0);
+          }
+          &:nth-of-type(2){
+            opacity: 0.3;
+          }
+          &:nth-of-type(3){
+            transform: scale(0.6) translate(0,0);
+          }
+          &:nth-of-type(4),&:nth-of-type(5){
+            transform: scale(0.3) translate(0,0);
+          }
+        }
+      }
+      img{
+        position: absolute;
+        transition: $transition-05;
+        transform: translate(0,0);
+        opacity: 0;
+        &:nth-of-type(1){
+          top: -15%;
+          left: -10%;
+          transform: translate(0,-120px);
+        }
+        &:nth-of-type(2){
+          top: -5%;
+          opacity: 0;
+          left: -5%;
+          transform: translate(0,-80px);
+        }
+        &:nth-of-type(3){
+          transform: scale(0.6) translate(0,-150px);
+          top: 77%;
+          z-index: 1;
+        }
+        &:nth-of-type(4){
+          z-index: 1;
+          transform: scale(0.3) translate(0,-500px);
+          top: 15px;
+          left: 20%;
+        }
+        &:nth-of-type(5){
+          z-index: 1;
+          right: 50px;
+          transform: scale(0.3) translate(0,-450px);
+          top: 50%;
+        }
+      }
+    }
+    &__content{
+      h2{
+        color: $blue;
+        font-size: 4rem;
+        position: absolute;
+        left: -100px;
+        top: 30px;
+      }
+      p{
+        position: absolute;
+        max-width: 450px;
+        bottom: 60px;
+        left: 50px;
+        letter-spacing: 1px;
+        font-size: 18px;
+      }
+      &__about{
+        background: $black;
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+        min-height: 45vh;
+        position: relative;
+      }
+    }
+  }
+}

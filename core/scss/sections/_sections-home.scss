@@ -1,5 +1,5 @@
 #home{
-  background: url('/core/images/headshot.jpg');
+  background:transparent url('/images/headshot.jpg');
   background-size: cover;
   &:before{
     content: '';
@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     opacity: 0.5;
+    z-index: 2;
   }
   h1{
     font-family: $font-monster;
