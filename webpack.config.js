@@ -6,9 +6,9 @@ const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
 
 let config = {
-  entry: './core/js/core.js',
+  entry: './/js/core.js',
   output: {
-    path: path.resolve(__dirname, './core'),
+    path: path.resolve(__dirname, './'),
     filename: './js/core.min.js'
   },
   module:{
@@ -28,7 +28,7 @@ let config = {
     new ExtractTextWebpackPlugin('./css/bundle.min.css')
   ],
   devServer:{
-    contentBase: path.resolve(__dirname, './core'),
+    contentBase: path.resolve(__dirname, './'),
     historyApiFallback: true,
     inline: true,
     open: true,
