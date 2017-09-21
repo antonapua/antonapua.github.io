@@ -1,6 +1,29 @@
 #home{
   background:transparent url('/images/headshot.jpg');
   background-size: cover;
+  background-position: center;
+  .icon-container{
+    position: absolute;
+    bottom: 100px;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+    .scroll-mouse-icon{
+      animation: scroll-animation 1.5s infinite;
+    }
+    svg{
+      max-width: 20px;
+      fill: #fff;
+      margin: 0 auto;
+      display: block;
+      &.arrow-section-icon{
+        position: relative;
+        top:-35px;
+      }
+    }
+
+  }
+  @keyframes scroll-animation{0%{transform:translate(0,0px)}50%{transform:translate(0,5px)}100%{transform:translate(0,0)}}
   &:before{
     content: '';
     display: block;

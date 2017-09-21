@@ -23,6 +23,7 @@ function slideTransition(direction){
 }
 jQuery(document).ready(function (){
    jQuery('section').stop().clearQueue();
+  //  slide transtion
    jQuery(window).bind('mousewheel', function(event) {
     if (event.originalEvent.wheelDelta >= 0) {
         slideTransition('prev');
@@ -30,5 +31,10 @@ jQuery(document).ready(function (){
     else {
         slideTransition('next');
     }
-});
+  });
+  // menu open
+  jQuery('.menu__burger').click(function (){
+    jQuery(this).toggleClass('active');
+    jQuery('.menu__overlay').fadeToggle();
+  });
 });
