@@ -3,7 +3,21 @@ require('./../index.html');
 
 var jQuery = require("jquery");
 
-
+function scrollTo(location,isMenu){
+  console.log(location);
+  if(isMenu == true){
+    setTimeout(function (){
+      jQuery('.menu__burger').click();
+    },300)
+  }
+  jQuery('section.active').addClass('animated').fadeOut('100', function() {
+    jQuery(this).removeClass('active animated');
+    jQuery(this).find('.page__objects').removeClass('active');
+    jQuery('#'+location).addClass('active').hide().fadeIn('100', function(){
+        jQuery(this).find('.page__objects').addClass('active');
+    });
+  });
+}
 function slideTransition(direction){
   var current = jQuery('section.active');
   if(jQuery('section').hasClass('animated')){
@@ -36,5 +50,11 @@ jQuery(document).ready(function (){
   jQuery('.menu__burger').click(function (){
     jQuery(this).toggleClass('active');
     jQuery('.menu__overlay').fadeToggle();
+  });
+  // scroll to
+  jQuery('[data-go]').click( function (){
+      var location = jQuery(this).attr('data-go');
+      var isMenu = jQuery(this).hasClass('from-menu');
+      scrollTo(location,isMenu);
   });
 });

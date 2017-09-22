@@ -5,7 +5,7 @@
     .outline-box{
       width: 230px;
       border: 10px solid $blue;
-      height: 350px;
+      height: 320px;
       right: 0;
       position: absolute;
       top: -30px;
@@ -13,11 +13,11 @@
     }
     .img-holder{
       width: 300px;
-      height: 500px;
-      background: #fff;
+      height: 430px;
+      background: $white;
       position: absolute;
       left: 64%;
-      top: 60px;
+      top: 40px;
     }
   }
 
@@ -69,32 +69,50 @@
           transform: scale(0.3) translate(0,-500px);
           top: 15px;
           left: 20%;
-          transition: $transition-05;
+          transition: $transition-07;
         }
         &:nth-of-type(5){
           z-index: 1;
           right: 50px;
           transform: scale(0.3) translate(0,-450px);
           top: 50%;
-          transition: $transition-02;
+          transition: $transition-1;
         }
       }
     }
     &__content{
       h2{
         color: $blue;
-        font-size: 4rem;
+        font-size: 3rem;
         position: absolute;
         left: -100px;
-        top: 30px;
+        top: 0px;
       }
       p{
         position: absolute;
         max-width: 450px;
-        bottom: 60px;
+        bottom: 100px;
         left: 50px;
         letter-spacing: 1px;
         font-size: 18px;
+        > span{
+          color: $blue;
+          font-weight: bold;
+          font-size: 20px;
+          position: absolute;
+          top: 160%;
+          width: 100%;
+          cursor: pointer;
+          span{
+            width: 40px;
+            height: 1px;
+            background: #fff;
+            display: block;
+            position: relative;
+            left: -60px;
+            top: 13px;
+          }
+        }
       }
       &__about{
         background: $black;
@@ -102,7 +120,7 @@
         margin: 0 auto;
         padding: 20px;
         box-sizing: border-box;
-        min-height: 45vh;
+        min-height: 50vh;
         position: relative;
       }
     }

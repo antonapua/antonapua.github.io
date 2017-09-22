@@ -34,9 +34,9 @@
         cursor: pointer;
         background-position: center;
         background-repeat: no-repeat;
-        background-image:  url('/images/Circle-Colored.png');
-        transition: $transition-05;
-        background-position: 0 -100%;
+        background-image:  url('/images/black-tile.png');
+        transition: $transition-02;
+        background-size: 100px;
         &:hover{
           background-position: center 0;
           &:first-of-type{
